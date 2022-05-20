@@ -90,7 +90,9 @@ public class BaseAI{
         if(calculating){
             if(calcTile == null){
                 Vars.spawner.eachGroundSpawn((x, y) -> calcTile = world.tile(x, y));
-                calculating = false;
+                if(calcTile == null){
+                    calculating = false;
+                }
             }else{
                 var field = pathfinder.getField(data.team, Pathfinder.costGround, Pathfinder.fieldCore);
 
