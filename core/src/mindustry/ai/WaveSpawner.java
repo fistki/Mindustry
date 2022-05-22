@@ -78,7 +78,7 @@ public class WaveSpawner{
                     }
                 });
             }else{
-                float spread = tilesize * 2;
+                float spread = tilesize * 2f;
 
                 eachGroundSpawn(group.spawn, (spawnX, spawnY, doShockwave) -> {
 
