@@ -121,7 +121,7 @@ public class WaveSpawner{
 
                 Tmp.v1.set(firstCore).sub(core).limit(coreMargin + core.block.size * tilesize /2f * Mathf.sqrt2);
 
-                boolean valid = false;
+                boolean canSpawn = false;
                 int steps = 0;
 
                 //keep moving forward until the max step amount is reached
@@ -136,7 +136,7 @@ public class WaveSpawner{
 
                     //nothing is in the way, spawn it
                     if(!any){
-                        valid = true;
+                        canSpawn = true;
                         break;
                     }else{
                         //make the vector longer
@@ -144,7 +144,7 @@ public class WaveSpawner{
                     }
                 }
 
-                if(valid){
+                if(canSpawn){
                     cons.accept(core.x + Tmp.v1.x, core.y + Tmp.v1.y, false);
                 }
             }
