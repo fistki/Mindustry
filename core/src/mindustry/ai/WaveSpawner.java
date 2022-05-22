@@ -24,7 +24,7 @@ public class WaveSpawner{
     private int tmpCount;
     private Seq<Tile> spawns = new Seq<>();
     private boolean spawning = false;
-    private boolean any = false;
+    private boolean isSolid = false;
     private Tile firstSpawn = null;
 
     public WaveSpawner(){
@@ -127,15 +127,15 @@ public class WaveSpawner{
                 //keep moving forward until the max step amount is reached
                 while(steps++ < maxSteps){
                     int tx = World.toTile(core.x + Tmp.v1.x), ty = World.toTile(core.y + Tmp.v1.y);
-                    any = false;
+                    isSolid = false;
                     Geometry.circle(tx, ty, world.width(), world.height(), 3, (x, y) -> {
                         if(world.solid(x, y)){
-                            any = true;
+                            isSolid = true;
                         }
                     });
 
                     //nothing is in the way, spawn it
-                    if(!any){
+                    if(!isSolid){
                         canSpawn = true;
                         break;
                     }else{
