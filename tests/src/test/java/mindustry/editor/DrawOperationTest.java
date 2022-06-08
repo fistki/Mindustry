@@ -133,7 +133,11 @@ class DrawOperationTest{
      * 4. Tile(conveyor, rotated), OpType.rotation
      * 5. Tile(grass), OpType.overlay
      * Expected:
-     * 1.
+     * 1. floor.floorID()
+     * 2. block.blockID()
+     * 3. 0 (not rotate)
+     * 4. 1 (rotate)
+     * 5. overlay.overlayID()
      */
     @Test
     void getTileTest(){
