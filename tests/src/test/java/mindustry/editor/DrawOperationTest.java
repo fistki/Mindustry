@@ -163,6 +163,11 @@ class DrawOperationTest{
         Tile overlay = world.rawTile(5,4);
         overlay.setBlock(Blocks.grass, Team.sharded);
         assertEquals(overlay.overlayID(), drawOperation.getTile(overlay, (byte)OpType.overlay.ordinal()));
+
+        Tile team = world.rawTile(5,5);
+        team.setBlock(Blocks.coreShard, Team.sharded);
+        assertEquals(team.getTeamID(), drawOperation.getTile(team, (byte)OpType.team.ordinal()));
+
     }
     /**
      * Purpose: check that getTile() throws Exception for illegal type parameter
